@@ -6,6 +6,13 @@ body
   overflow: hidden; 
 }
 
+#image2{
+  display: block;
+ z-index:0; 
+position: relative;
+background-size: contain; 
+}
+
 #image1{
   display: block;
   margin: 0 auto;
@@ -13,10 +20,14 @@ body
   height: auto;
   margin-left: auto;
   margin-right: auto;  
-  position: relative;
- background: url(issac.jpg) no-repeat left center;
- 
+  position: absolute;
+  left: 20%;
+  background: url(issac.jpg) no-repeat left center;
+  background-size: contain; 
+  z-index:1; 
 }
+
+
 
 #a1{
   display: block;
@@ -28,18 +39,7 @@ body
   position: absolute;
   top: 12%;
   left: 60%;
-}
-
-#a4{
-  display: block;
-  margin: 0 auto;
-  max-width: 2%;
-  height: auto;
-  margin-left: auto;
-  margin-right: auto;  
-  position: absolute;
-  top:17%;
-  left: 30%;
+z-index:5;
 }
 
 #a2{
@@ -52,6 +52,7 @@ body
   position: absolute;
   top: 15%;
   left: 50%;
+  z-index:5;
 }
 
 #a3{
@@ -64,28 +65,26 @@ body
   position: absolute;
   top: 19%;
   left: 40%;
-}
-.aura
-{
-  display: block;
-  margin: 0 auto;
-  max-width: 40%;
-  height: 45%;
-  margin-left: auto;
-  margin-right: auto;
-  top:58%;
-  left:38%;
-  position: absolute;
-  z-index: -99;
+  z-index:5;
 }
 
-.aura:hover::after{
-  background: #dadada;
-}
+#a4{
+  display: block;
+  margin: 0 auto;
+  max-width: 2%;
+  height: auto;
+  margin-left: auto;
+  margin-right: auto;  
+  position: absolute;
+  top:17%;
+  left: 30%;
+  z-index:5;
+} 
+
 
 
 body:before
-{
+{ 
   content: '';
   display: block;
   position: fixed;
@@ -94,12 +93,11 @@ body:before
   z-index:1;
 }
 
-
 input + label 
 {
   position: absolute;
   left: -100;
-  z-index: 1;
+  z-index: 100;
   width: 2%;
   height: 34px;
   display: block;
@@ -108,9 +106,7 @@ input + label
   background: url("ff.png");
   background-repeat: no-repeat;
   background-size: contain;
-  /*background-position: -138px 0;*/
 }
-
 
 input:checked + label
 {
@@ -118,53 +114,43 @@ input:checked + label
   transition: 0.5s;
   transform: rotate(120deg);
   transform-origin: 60%;
-  z-index:-5;
+  z-index: -5;
+  display: none;
 }
 
 
 .apple:nth-last-of-type(1)
 {
- animation: applefall 5s linear 1s infinite;
+ animation: applefall1 6s linear 3.5s infinite;
 }
 .apple:nth-last-of-type(2)
 {
- animation: applefall1 6s linear 2.5s infinite;
+ animation: applefall2 4s linear 2.5s infinite;
 }
 .apple:nth-last-of-type(3)
 {
- animation: applefall2 4s linear 1.5s infinite;
+ animation: applefall3 5s linear 4.0s infinite;
 }
 .apple:nth-last-of-type(4)
 {
- animation: applefall3 5s linear 4.0s infinite;
-}
-.apple:nth-last-of-type(5)
-{
  animation: applefall4 6s linear 2.5s infinite;
 }
-.apple:nth-last-of-type(6)
+.apple:nth-last-of-type(5)
 {
  animation: applefall5 7s linear 3.0s infinite;
 }
 
-
 .score
 {
  position: absolute;
- height: 5%;
+ height: 4%;
  bottom: 0%;
- line-height: 10%;
+ line-height: 1%;
  background-color: #dadada;
  width: 100%;
  z-index: 2;
  text-align: center;
  font-size: 30px;
-}
-
-.score:after
-{
- content: counter(score);
-display: inline-block;
 
 }
 
@@ -173,44 +159,49 @@ display: inline-block;
  content: 'score: ';
 display: inline-block;
 margin: 1%;
-
 }
+
+.score:after
+{
+ content: counter(score);
+display: inline-block;
+margin: 1%;
+}
+
 
 input:checked
 {
 counter-increment: score;
+
 }
-@keyframes applefall
-{
-from{ top: 10% }
-to{ top: 40% }
-}
+
+
 @keyframes applefall1
 {
 0%
 {
-  left: 30%;
-  top: 6%;
+  left: 35%;
+  top: 20%;
 }
 25%
 {
-  left: 40%;
-  top: 15%;
+  left: 35%;
+  top: 40%;
 }
 50%
 {
-  left: 45%;
-  top: 30%;
+  left: 35%;
+  top: 60%;
 }
 75%
 {
-  left: 45%;
-  top: 50%;
+  left: 35%;
+  top: 80%;
 }
 100%
 {
-  left: 50%;
-  top: 51%;
+  left: 35%;
+  top: 100%;
 }
 }
 
@@ -218,28 +209,28 @@ to{ top: 40% }
 {
 0%
 {
-  left: 35%;
-  top: 6%;
+  left: 47%;
+  top: 20%;
 }
 25%
 {
-  left: 35%;
-  top: 15%;
+  left: 47%;
+  top: 40%;
 }
 50%
 {
-  left: 35%;
-  top: 30%;
+  left: 47%;
+  top: 60%;
 }
 75%
 {
-  left: 35%;
-  top: 50%;
+  left: 47%;
+  top: 80%;
 }
 100%
 {
-  left: 35%;
-  top: 51%;
+  left: 47%;
+  top: 100%;
 }
 }
 
@@ -247,28 +238,28 @@ to{ top: 40% }
 {
 0%
 {
-  left: 40%;
-  top: 6%;
+  left: 50%;
+  top: 20%;
 }
 25%
 {
-  left: 40%;
-  top: 15%;
+  left: 50%;
+  top: 40%;
 }
 50%
 {
-  left: 40%;
-  top: 30%;
+  left: 50%;
+  top: 60%;
 }
 75%
 {
-  left: 40%;
-  top: 50%;
+  left: 50%;
+  top: 80%;
 }
 100%
 {
-  left: 40%;
-  top: 51%;
+  left: 50%;
+  top: 100%;
 }
 }
 
@@ -277,55 +268,54 @@ to{ top: 40% }
 0%
 {
   left: 60%;
-  top: 6%;
+  top: 20%;
 }
 25%
 {
   left: 60%;
-  top: 15%;
+  top: 40%;
 }
 50%
 {
   left: 60%;
-  top: 30%;
+  top: 60%;
 }
 75%
 {
   left: 60%;
-  top: 50%;
+  top: 80%;
 }
 100%
 {
   left: 60%;
-  top: 51%;
+  top: 100%;
 }
 }
-
 @keyframes applefall5
 {
 0%
 {
-  left: 50%;
-  top: 0%;
+  left: 55%;
+  top: 20%;
 }
 25%
 {
-  left: 50%;
-  top: 15%;
+  left: 55%;
+  top: 40%;
 }
 50%
 {
-  left: 50%;
-  top: 30%;
+  left: 55%;
+  top: 60%;
 }
 75%
 {
-  left: 50%;
-  top: 50%;
+  left: 55%;
+  top: 80%;
 }
 100%
 {
-  left: 50%;
-  top: 51%;
+  left: 55%;
+  top: 100%;
 }
 }
